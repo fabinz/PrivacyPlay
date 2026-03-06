@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Dashboard - PrivacyPlay</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <h1>📊 Results Dashboard</h1>
+            <p class="subtitle">See how the coin flip protects privacy while revealing truth!</p>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-participants">0</div>
+                    <div class="stat-label">Total Participants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="heads-count">0</div>
+                    <div class="stat-label">Told Truth (HEADS)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="tails-count">0</div>
+                    <div class="stat-label">Random Answer (TAILS)</div>
+                </div>
+            </div>
+
+            <!-- Main Charts -->
+            <div class="charts-container">
+                <!-- Reported Results -->
+                <div class="chart-box">
+                    <h2>What Everyone Saw (Reported)</h2>
+                    <p class="chart-description">This includes both truthful and random responses</p>
+                    <div id="reported-chart"></div>
+                    <div class="percentages">
+                        <div class="percentage-box yes">
+                            <span class="percent-label">YES:</span>
+                            <span class="percent-value" id="reported-yes">0%</span>
+                        </div>
+                        <div class="percentage-box no">
+                            <span class="percent-label">NO:</span>
+                            <span class="percent-value" id="reported-no">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- True Results -->
+                <div class="chart-box">
+                    <h2>The Truth (HEADS Only)</h2>
+                    <p class="chart-description">Only from people who flipped HEADS and told truth</p>
+                    <div id="true-chart"></div>
+                    <div class="percentages">
+                        <div class="percentage-box yes">
+                            <span class="percent-label">YES:</span>
+                            <span class="percent-value" id="true-yes">0%</span>
+                        </div>
+                        <div class="percentage-box no">
+                            <span class="percent-label">NO:</span>
+                            <span class="percent-value" id="true-no">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="explanation-section">
+                <h2>🔍 How We Compute This</h2>
+                <div class="steps">
+                    <div class="step" id="step1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Total Submissions</h3>
+                            <p><span class="highlight-number" id="explain-total">0</span> people participated</p>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Reported Answers</h3>
+                            <p><span class="highlight-number" id="explain-yes">0</span> said YES, <span class="highlight-number" id="explain-no">0</span> said NO</p>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Truth Subset (HEADS only)</h3>
+                            <p><span class="highlight-number" id="explain-heads">0</span> people flipped HEADS and told the truth</p>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>True Breakdown</h3>
+                            <p>True YES: <span class="highlight-number" id="explain-true-yes">0</span>, True NO: <span class="highlight-number" id="explain-true-no">0</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-insight">
+                    <h3>🔒 The Privacy Magic</h3>
+                    <p>Nobody knows which path YOU took! Even though we can see the aggregate truth, your individual answer stays completely private because observers can't tell if you:</p>
+                    <ul>
+                        <li>✓ Flipped HEADS and told the truth</li>
+                        <li>✓ Flipped TAILS and gave a random answer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Refresh Button -->
+            <div class="actions">
+                <button class="btn-primary" onclick="loadResults()">
+                    🔄 Refresh Data
+                </button>
+                <button class="btn-secondary" onclick="window.location.href='/'">
+                    ← Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/results.js"></script>
+</body>
+</html>
