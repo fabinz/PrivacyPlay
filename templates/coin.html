@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coin Flip Activity - PrivacyPlay</title>
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="activity-box">
+                <h1>🪙 Coin Flip Activity</h1>
+
+                <!-- Question -->
+                <div id="question" class="question-box">
+                    <h2>The Privacy Question</h2>
+                    <p class="question-text">
+                        Have you ever stayed up later than you were supposed to?
+                    </p>
+                    <p class="instructions">
+                        Now flip your coin and follow the rules!
+                    </p>
+                </div>
+
+                <!-- Coin Flip Section -->
+                <div id="coin-section" class="coin-section">
+                    <div class="coin" id="coin">
+                        <div class="coin-face heads">HEADS</div>
+                        <div class="coin-face tails">TAILS</div>
+                    </div>
+                    <button
+                        class="btn-primary"
+                        id="flip-btn"
+                        onclick="flipCoin()"
+                    >
+                        Click to Flip Coin!
+                    </button>
+                    <div id="flip-result" class="flip-result"></div>
+                </div>
+
+                <!-- Instructions after first flip -->
+                <div
+                    id="instructions"
+                    class="instructions-box"
+                    style="display: none"
+                >
+                    <p id="instruction-text"></p>
+                </div>
+
+                <!-- Second flip (if needed) -->
+                <div
+                    id="second-flip"
+                    class="coin-section"
+                    style="display: none"
+                >
+                    <div class="coin" id="coin2">
+                        <div class="coin-face heads">HEADS</div>
+                        <div class="coin-face tails">TAILS</div>
+                    </div>
+                    <button class="btn-primary" onclick="flipCoinSecond()">
+                        Flip Again!
+                    </button>
+                    <div id="flip-result2" class="flip-result"></div>
+                </div>
+
+                <!-- Answer buttons -->
+                <div
+                    id="answer-section"
+                    class="answer-section"
+                    style="display: none"
+                >
+                    <h3>What's your answer?</h3>
+                    <p class="small-text">(Follow what the coin told you!)</p>
+                    <div class="button-group">
+                        <button
+                            class="btn-answer btn-yes"
+                            onclick="submitAnswer('yes')"
+                        >
+                            YES
+                        </button>
+                        <button
+                            class="btn-answer btn-no"
+                            onclick="submitAnswer('no')"
+                        >
+                            NO
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thank you message -->
+                <div id="thank-you" style="display: none">
+                    <h2>✅ Thank You!</h2>
+                    <p>Your response has been recorded.</p>
+                    <p class="highlight">Your individual answer is private!</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="/static/coin.js"></script>
+    </body>
+</html>
